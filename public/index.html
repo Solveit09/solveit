@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>메인 화면</title>
 </head>
 <body>
     <h1>재오 화이팅</h1>
+    
+    {% if current_user %}
+        <p>로그인 되어있음 {{ current_user['nickname'] }} ㅎㅇ요</p>
+        <a href="/logout">로그아웃</a>
+    {% else %}
+        <p>로그인 안되어있음 하고 오셈</p>
+        <a href="/login">로그인</a>
+        <a href="/signup">회원가입</a>
+    {% endif %}
 </body>
 </html>
