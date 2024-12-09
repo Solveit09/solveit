@@ -135,5 +135,6 @@ async def signup(
 
 @app.get("/logout")
 async def logout(response: Response):
-    response.delete_cookie("user_data")  # 쿠키 삭제
+    response.delete_cookie("user_data", path="/")  # 쿠키 삭제
     return RedirectResponse(url="/", status_code=302)
+
