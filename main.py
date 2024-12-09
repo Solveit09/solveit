@@ -17,7 +17,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 current_date = datetime.now().strftime("%Y-%m-%d")
 
 # 비밀 키 설정 (쿠키 암호화에 사용)
-SECRET_KEY = "mysecretkey"
+SECRET_KEY = "vnoewppocvzxcnmlasdjeiooaidnvoiascnasdghoitaeoahdjvnaskjcvnbkjarshpwihfriascjasdklvscalbdhfaoweoufbhdaodbahebdhsy"
 serializer = Serializer(SECRET_KEY)
 
 class User(Base):
