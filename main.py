@@ -70,7 +70,6 @@ async def login(
     )
 
     if user and bcrypt.checkpw(password.encode('utf-8'), user.password.encode('utf-8')):
-        # 사용자를 암호화하여 쿠키에 저장
         user_data = {'id': user.id, 'nickname': user.nickname}
         encrypted_data = serializer.dumps(user_data)
 
@@ -135,6 +134,6 @@ async def signup(
 
 @app.get("/logout")
 async def logout(response: Response):
-    response.delete_cookie("user_data", path="/")  # 쿠키 삭제
+    response.delete_cookie("user_data") 
     return RedirectResponse(url="/", status_code=302)
 
