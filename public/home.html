@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Solveit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #f9f9f9;
+    }
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        font-family: "Gasoek One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    header .logo {
+        font-size: 1.2rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+    }
+    header .icon {
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    main {
+        padding: 1rem;
+    }
+    .banner {
+        width: 100%;
+        height: 80px;
+        border-radius: 60px;
+        background: #FFF;
+        box-shadow: 0px 0px 20px -7px rgba(0, 0, 0, 0.10);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        margin-bottom: 1rem;
+    }
+    .contents {
+        background: #fff;
+        box-shadow: 0px 0px 20px -7px rgba(0, 0, 0, 0.10);
+        border-radius: 20px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    .quick-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        box-shadow: 0px 0px 20px -7px rgba(0, 0, 0, 0.10);
+        border-radius: 20px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    .quick-action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.9rem;
+        font-weight:bold;
+        cursor: pointer;
+    }
+    .quick-action img,
+    .quick-action svg {
+        width: 50px;
+        margin-bottom: 0.5rem;
+    }
+    @media (min-width: 768px) {
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            justify-content: center;
+        }
+        .quick-action img {
+            width: 60px; /* PC에서 아이콘 크기 확대 */
+        }
+        .quick-action {
+            font-size: 1rem; /* PC에서 텍스트 크기 확대 */
+        }
+    }
+    .stats {
+        background: #fff;
+        box-shadow: 0px 0px 20px -7px rgba(0, 0, 0, 0.10);
+        border-radius: 20px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+    .stats-item {
+        margin-bottom: 1rem;
+    }
+    .stats-item:last-child {
+        margin-bottom: 0;
+    }
+    .footer-info {
+        text-align: center;
+        color: #999;
+        font-size: 0.9rem;
+        margin-top: 2rem;
+    }
+    nav {
+        position: fixed;
+        bottom: 0;
+        left: 0; right: 0;
+        background: #fff;
+        border-top: 1px solid #ddd;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 60px;
+    }
+    nav a {
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        color: #333;
+        font-size: 0.8rem;
+    }
+    nav a .icon {
+        display: block;
+        font-size: 1.4rem;
+        margin-bottom: 0.2rem;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    
+    <div class="logo"><img src="images/Solveit_ 로고.svg" style="width: 100px;"></div>
+    <div class="icon">🔔</div>
+</header>
+
+<main>
+    <div class="banner">
+        Banner
+    </div>
+
+    <div class="contents">
+        내가 푼 문제
+    </div>
+
+    <div class="quick-actions">
+        <div class="quick-action">
+            <img src="images\AI 아이콘.svg">
+            문제 생성하기
+        </div>
+        <div class="quick-action">
+            <img src="images\문제풀이 버튼.svg" style="width: 55px;">
+            문제 풀이
+        </div>
+        <div class="quick-action">
+            <img src="images\종이.svg" style="width: 40px;">
+            문제 게시판
+        </div>
+        <div class="quick-action">
+            <img src="images\채팅 아이콘.svg" style="width: 60px;">
+            커뮤니티
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stats-item">
+            이번 주 푼 문제 수 <br>
+            <strong>{{users.problems_week}}문제</strong> /<span>{{users.problems_goal}}</span>
+        </div>
+        <div class="stats-item">
+            이번 주 공부시간 <br>
+            <strong>{{users.time_week}}분</strong> /<span>{{users.time_goal}}</span>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        (여기에 정보 더 추가)
+    </div>
+</main>
+
+<nav>
+    <a href="#">
+        <img src="images\홈 아이콘.svg" width="30px">
+    </a>
+    <a href="#">
+        <img src="images\캘린더 아이콘.svg" width="30px">
+    </a>
+    <a href="#">
+        <img src="images\타이머 시작 버튼.png" width="50px">
+    </a>
+    <a href="#">
+        <img src="images\검색 아이콘.svg" width="30px">
+    </a>
+    <a href="#">
+        <img src="images\프로필 아이콘.svg" width="30px">
+    </a>
+</nav>
+
+</body>
+</html>
